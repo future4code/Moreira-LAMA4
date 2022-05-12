@@ -11,17 +11,38 @@ export class UserController {
         name,
         email,
         password,
-        role
+        role,
       };
       const token: string = await this.userBusiness.signup(input);
       res
         .status(201)
         .send({ message: "Usuário cadastrado com sucesso!", token: token });
-    } catch (error) {
-      if (error instanceof Error) {
-        res.status(400).send(error.message);
+    } catch (error: any) {
+      switch (error.message) {
+        case "Preencha todos os campos.":
+          res.status(422).send(error.message);
+          break;
+        case "Email inválido.":
+          res.status(422).send(error.message);
+          break;
+        case "Sua senha deve ter ao menos 6 caracteres.":
+          res.status(422).send(error.message);
+          break;
+        case "Preencha o campo 'role' com 'admin' ou 'normal'.":
+          res.status(422).send(error.message);
+          break;
+        case "Email já cadastrado.":
+          res.status(422).send(error.message);
+          break;
+        case "Preencha o campo 'role' com 'admin' ou 'normal'.":
+          res.status(422).send(error.message);
+          break;
+        case "Erro no banco de dados.":
+          res.status(500).send(error.message);
+          break;
+        default:
+          res.status(500).send("Erro do servidor.");
       }
-      res.status(500).send("Erro no servidor.");
     }
   };
 }

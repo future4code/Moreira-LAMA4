@@ -23,6 +23,21 @@ export class UserBusiness {
       throw new Error("Preencha todos os campos.");
     }
 
+    //Validação de email
+    if (email.indexOf("@") === -1) {
+      throw new Error("Email inválido.");
+    }
+
+    //Validação de senha
+    if (password.length < 6) {
+      throw new Error("Sua senha deve ter ao menos 6 caracteres.");
+    }
+
+    //Validação de role
+    if (role.toLowerCase() !== "admin" && role.toLowerCase() !== "normal") {
+      throw new Error("Preencha o campo 'role' com 'admin' ou 'normal'.");
+    }
+
     //Validação de uso de email único
     const foundUser = await this.userDataBase.getUserByEmail(email);
     if (foundUser) {
