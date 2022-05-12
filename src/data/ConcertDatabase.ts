@@ -4,7 +4,7 @@ import { BaseDatabase } from "./BaseDatabase";
 export class ConcertDatabase extends BaseDatabase {
   protected TABLE_NAME = "lama_shows";
 
-  public register = async (concert: Concert): Promise<void> => {
+  public registerConcert = async (concert: Concert): Promise<void> => {
     try {
       await this.connection(this.TABLE_NAME).insert({
         id: concert.getId(),
