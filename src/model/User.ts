@@ -1,4 +1,4 @@
-import { USER_ROLES } from "../types/ENUM/userRoles";
+import { USER_ROLES } from "../types/ENUM/USER_ROLES";
 
 export class User {
   constructor(
