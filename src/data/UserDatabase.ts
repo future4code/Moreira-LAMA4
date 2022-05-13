@@ -54,4 +54,20 @@ export class UserDatabase extends BaseDatabase {
       }
     }
   };
+
+  public getUserByName = async (name: string) => {
+    try {
+      const [result] = await this.connection(this.TABLE_NAME).where(
+        "name",
+        name
+      );
+      return result;
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error('Erro na conexão com o banco de dados');
+      } else {
+        throw new Error("Erro no banco de dados.");
+      }
+    }
+  };
 }
