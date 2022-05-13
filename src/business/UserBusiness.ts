@@ -3,6 +3,7 @@ import { User } from "../model/User";
 import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
+import { loginInputDTO } from "../types/DTO/loginInputDTO";
 import { signupInputDTO } from "../types/DTO/signupInputDTO";
 
 export class UserBusiness {
@@ -48,6 +49,35 @@ export class UserBusiness {
     await this.userDataBase.signup(user);
 
     const token: string = this.authenticator.generate({ id });
+
+    return token;
+  };
+
+  public login = async (input: loginInputDTO): Promise<string> => {
+    const {email, password} = input;
+
+    // vou comentar também pq achei bonito hehe 
+    // validação de preenchimento de dados
+    if (!email || !password) {
+      throw new Error('Verifique se todos os campos foram preenchidos');
+    }
+
+    const foundUser = await this.userDataBase.getUserByEmail(email);
+
+    // validação de email
+    if (!foundUser) {
+      throw new Error('Email não cadastrado');
+    }
+
+    // validação de senha
+    const isValid: boolean = await this.hashManager.compare(password, foundUser.password); 
+
+    if (!isValid) {
+      throw new Error('Senha e/ou email inválidos');
+    }
+
+    const id: string = foundUser.id;
+    const token: string = this.authenticator.generate({id});
 
     return token;
   };

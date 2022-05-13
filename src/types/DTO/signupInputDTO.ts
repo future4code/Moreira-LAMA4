@@ -1,4 +1,4 @@
-import { USER_ROLES } from "../ENUM/USER_ROLES.TS";
+import { USER_ROLES } from "../ENUM/USER_ROLES";
 
 export type signupInputDTO = {
   name: string;
