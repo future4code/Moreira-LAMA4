@@ -16,3 +16,13 @@ Content-Type: application/json
     "email": "",
     "password": ""
 }
+###
+
+POST http://localhost:3306/bands/sign
+Content-Type: application/json
+
+{
+    "name": "Ablubleblé",
+    "music_genre": "O mais louco",
+    "responsible": "Leona Christen"
+}
