@@ -5,4 +5,5 @@ export type concertInputDTO = {
   startTime: number;
   endTime: number;
   bandId: string;
+  token: string;
 };
