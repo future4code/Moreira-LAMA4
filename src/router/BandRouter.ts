@@ -14,3 +14,4 @@ const bandBusiness: BandBusiness = new BandBusiness(
 const bandController = new BandController(bandBusiness);
 
 bandRouter.post('/sign', bandController.signBand);
+bandRouter.get('/details', bandController.getDetails);
