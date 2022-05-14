@@ -49,29 +49,30 @@ export class UserController {
 
   public login = async (req: Request, res: Response): Promise<void> => {
     try {
-      const {email, password} = req.body;
+      const { email, password } = req.body;
       const input: loginInputDTO = {
         email,
-        password
+        password,
       };
       const token: string = await this.userBusiness.login(input);
 
-      res.status(200).send({message: 'Login efetuado com sucesso', token});
-    } 
-    catch (error: any) {
+      res
+        .status(200)
+        .send({ message: "Login efetuado com sucesso", token: token });
+    } catch (error: any) {
       switch (error.message) {
-        case 'Email não cadastrado':
-          res.status(404).send(error.message);
-          break;
-        case 'Verifique se todos os campos foram preenchidos':
+        case "Email não cadastrado.":
           res.status(401).send(error.message);
           break;
-        case 'Senha e/ou email inválidos':
-          res.status(400).send(error.message);
+        case "Verifique se todos os campos foram preenchidos.":
+          res.status(422).send(error.message);
+          break;
+        case "Senha e/ou email inválidos.":
+          res.status(403).send(error.message);
           break;
         default:
-          res.status(500).send('Erro no servidor');
-          break;  
+          res.status(500).send("Erro no servidor.");
+          break;
       }
     }
   };

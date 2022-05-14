@@ -48,7 +48,7 @@ export class UserBusiness {
 
     await this.userDataBase.signup(user);
 
-    const token: string = this.authenticator.generate({ id });
+    const token: string = this.authenticator.generate({ id, role });
 
     return token;
   };
@@ -56,29 +56,29 @@ export class UserBusiness {
   public login = async (input: loginInputDTO): Promise<string> => {
     const {email, password} = input;
 
-    // vou comentar também pq achei bonito hehe 
     // validação de preenchimento de dados
     if (!email || !password) {
-      throw new Error('Verifique se todos os campos foram preenchidos');
+      throw new Error('Verifique se todos os campos foram preenchidos.');
     }
 
     const foundUser = await this.userDataBase.getUserByEmail(email);
 
     // validação de email
     if (!foundUser) {
-      throw new Error('Email não cadastrado');
+      throw new Error('Email não cadastrado.');
     }
 
     // validação de senha
     const isValid: boolean = await this.hashManager.compare(password, foundUser.password); 
 
     if (!isValid) {
-      throw new Error('Senha e/ou email inválidos');
+      throw new Error('Senha e/ou email inválidos.');
     }
 
     const id: string = foundUser.id;
-    const token: string = this.authenticator.generate({id});
+    const role: string = foundUser.role
+     const token: string = this.authenticator.generate({id, role});
 
-    return token;
+     return token;
   };
 }

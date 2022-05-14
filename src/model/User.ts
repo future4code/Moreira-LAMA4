@@ -1,4 +1,3 @@
-import { USER_ROLES } from "../types/ENUM/USER_ROLES";
 
 export class User {
   constructor(
@@ -6,7 +5,7 @@ export class User {
     private name: string,
     private email: string,
     private password: string,
-    private role: USER_ROLES
+    private role: string
   ) {}
 
   public getId = () => {
