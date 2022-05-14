@@ -26,3 +26,6 @@ Content-Type: application/json
     "music_genre": "O mais louco",
     "responsible": "Leona Christen"
 }
+###
+GET http://localhost:3306/bands/details?name=&id=
+Content-Type: application/json
