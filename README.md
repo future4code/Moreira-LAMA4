@@ -63,5 +63,5 @@ O projeto foi criado com as seguintes tecnologias
  
 ## ✒️ Autora e autor
 
-**Leona Christen** - [LinkedIn](https://www.linkedin.com/in/leochristen/), [GitHub](https://github.com/christenLeo)
-**Lucas Pasche** - [LinkedIn](https://www.linkedin.com/in/lucas-pasche/), [GitHub](https://github.com/llpasche)
+**Leona Christen** - [LinkedIn](https://www.linkedin.com/in/leochristen/), [GitHub](https://github.com/christenLeo)\
+**Lucas Pasche** - [LinkedIn](https://www.linkedin.com/in/lucas-pasche/), [GitHub](https://github.com/llpasche)\
