@@ -23,7 +23,7 @@ Para instalar a aplicação é necessário ter instalado na sua máquina:
 Para rodar o projeto execute os comandos abaixo no seu terminal:
 
 Para copiar o projeto\
-`git clone https://github.com/llpasche/MyMTG.git`
+`git clone https://github.com/future4code/Moreira-LAMA4.git`
 
 Para rodar o projeto, entre na sua pasta raíz (MyMTG) e execute:\
 `npm install`
