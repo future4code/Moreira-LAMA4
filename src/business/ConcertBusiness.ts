@@ -5,7 +5,6 @@ import { Concert } from "../model/Concert";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 import { concertInputDTO } from "../types/DTO/concertInputDTO";
-import { WEEK_DAY } from "../types/ENUM/WEEK_DAY";
 
 export class ConcertBusiness {
   constructor(
@@ -83,7 +82,7 @@ export class ConcertBusiness {
     await this.concertDatabase.registerConcert(concert);
   };
 
-  public getConcertsByDay = async (day: WEEK_DAY): Promise<Concert[]> => {
+  public getConcertsByDay = async (day: string): Promise<Concert[]> => {
     if (
       day.toLowerCase() !== "sexta" &&
       day.toLowerCase() !== "sabado" &&

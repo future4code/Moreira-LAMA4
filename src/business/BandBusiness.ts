@@ -9,7 +9,6 @@ import { signBandInputDTO } from "../types/DTO/signBandInputDTO";
 export class BandBusiness {
   constructor(
     private idGenerator: IdGenerator,
-    private userDataBase: UserDatabase,
     private bandDatabase: BandDatabase,
     private authenticator: Authenticator
   ) {}

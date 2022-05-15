@@ -1,3 +1,4 @@
+import { loginInputMock } from "./mocks/user-mocks/loginInputMock";
 import {
   noEmailInputMock,
   noNameInputMock,
@@ -44,5 +45,36 @@ describe("Testes de signup", () => {
   });
 });
 
+describe("Teste de login", () => {
+  test("Deve retornar um erro se o email não for informado.", async () => {
+    expect.assertions;
+    try {
+      const token = await userBusinessMock.login(noEmailInputMock);
+      expect(token).toBe(undefined);
+    } catch (error: any) {
+      expect(error.message).toEqual(
+        "Verifique se todos os campos foram preenchidos."
+      );
+    }
+  });
 
+  test("Deve retornar um erro se a senha não for informada.", async () => {
+    expect.assertions;
+    try {
+      const token = await userBusinessMock.login(noPasswordInputMock);
+      expect(token).toBe(undefined);
+    } catch (error: any) {
+      expect(error.message).toEqual(
+        "Verifique se todos os campos foram preenchidos."
+      );
+    }
+  });
 
+  test("Deve realizar o login.", async () => {
+    expect.assertions;
+    try {
+      const token = await userBusinessMock.login(loginInputMock);
+      expect(token).toBeDefined();
+    } catch (error: any) {}
+  });
+});

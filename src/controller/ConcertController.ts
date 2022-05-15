@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { ConcertBusiness } from "../business/ConcertBusiness";
-import { Concert } from "../model/Concert";
 import { concertInputDTO } from "../types/DTO/concertInputDTO";
-import { WEEK_DAY } from "../types/ENUM/WEEK_DAY";
 
 export class ConcertController {
   constructor(private concertBusiness: ConcertBusiness) {}
@@ -69,7 +67,7 @@ export class ConcertController {
     res: Response
   ): Promise<void> => {
     try {
-      const day = req.query.day as WEEK_DAY;
+      const day = req.query.day as string;
       const result = await this.concertBusiness.getConcertsByDay(day);
 
       res.status(200).send(result);
