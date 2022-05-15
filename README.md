@@ -32,13 +32,13 @@ Para criar uma cópia das tabelas no seu banco de dados, execute:\
 `npm run migrations`
 
 ## 🔑 Variáveis de ambiente
-  DB_HOST = 
-  DB_USER =
-  DB_PASSWORD =
-  DB_SCHEMA =
-  PORT =
-  BCRYPT_COST =
-  JWT_KEY =
+  DB_HOST =\
+  DB_USER =\
+  DB_PASSWORD =\
+  DB_SCHEMA =\
+  PORT =\
+  BCRYPT_COST =\
+  JWT_KEY =\
   EXPIRES_IN =
 
 
