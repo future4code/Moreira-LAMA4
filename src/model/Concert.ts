@@ -1,9 +1,7 @@
-import { WEEK_DAY } from "../types/ENUM/WEEK_DAY";
-
 export class Concert {
   constructor(
     private id: string,
-    private day: WEEK_DAY,
+    private day: string,
     private startTime: number,
     private endTime: number,
     private bandId: string

@@ -1,5 +1,4 @@
 import { Concert } from "../model/Concert";
-import { WEEK_DAY } from "../types/ENUM/WEEK_DAY";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class ConcertDatabase extends BaseDatabase {
@@ -53,7 +52,7 @@ export class ConcertDatabase extends BaseDatabase {
     }
   };
 
-  public getConcertsByDay = async (day: WEEK_DAY) => {
+  public getConcertsByDay = async (day: string) => {
     try {
       const concerts = await this.connection(this.TABLE_NAME)
         .join("lama_bands", "lama_shows.band_id", "lama_bands.id")
